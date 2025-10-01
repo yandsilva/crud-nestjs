@@ -10,6 +10,17 @@ export class UserService {
 
   async create(createUserDto: CreateUserDto) {
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
+
+    const existingUser = await this.prisma.user.findFirst({
+      where: {
+        email: createUserDto.email,
+      },
+    });
+
+    if (existingUser) {
+      throw new Error('Usuário já existe');
+    }
+
     return this.prisma.user.create({
       data: {
         ...createUserDto,
@@ -27,9 +38,9 @@ export class UserService {
   async findOne(id: number) {
     const user = await this.prisma.user.findUnique({
       where: { id },
-      select: { id: true, name: true, email: true }, // oculta senha
+      select: { id: true, name: true, email: true },
     });
-    if (!user) throw new NotFoundException(`User #${id} not found`);
+    if (!user) throw new NotFoundException(`Usuario #${id} não encontrado`);
     return user;
   }
 

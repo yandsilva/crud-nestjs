@@ -15,15 +15,15 @@ async function bootstrap() {
   );
 
   const config = new DocumentBuilder()
-    .setTitle('API Filmes e series - StreamingAPI')
+    .setTitle('LAR - Lugar de apoio e recomeço')
     .setDescription(
-      'A present API tem como objetivo fornecer dados sobre filmes e séries de TV, incluindo detalhes como títulos, descrições, gêneros, classificações e outras informações relevantes. A API é projetada para ser fácil de usar e integrar em várias aplicações, permitindo que desenvolvedores acessem um vasto banco de dados de conteúdo audiovisual para criar experiências ricas e envolventes para os usuários.',
+      'LAR (Lugar de Apoio e Recomeço) é um site para as pessoas se aprofundarem com informações sobre doenças psicológica e tipos de Abusos. A agenda 2030 – plano de ação global para atingir o mundo melhor e sustentável – tem como objetivo a ODS 3 (Objetivo de Desenvolvimento Sustentável) que Visa assegurar uma vida saudável e promover o bem-estar para todas as pessoas em todas as idades',
     )
     .setVersion('1.0')
     .addTag('usuarios')
-    .addTag('filmes')
-    .addTag('series')
-    .addTag('eventos')
+    .addTag('Instituição')
+    .addTag('Formulario1')
+    .addTag('Formulario2')
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
